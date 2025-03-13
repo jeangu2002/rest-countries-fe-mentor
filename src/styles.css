@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.ard, .dark *));
+
+:root {
+  --cl-dark-blue: hsl(0, 0%, 98%);
+  --cl-main-bg: var(--cl-dark-blue);
+  --cl-text: hsl(200, 15%, 8%);
+  --cl-input: hsl(0, 0%, 52%);
+  --cl-white: hsl(0, 0%, 100%);
+
+  --section-gap: 3rem;
+  overflow-y: scroll;
+}
+
+.dark {
+  --cl-dark-blue: hsl(210, 22%, 22%);
+  --cl-main-bg: hsl(205, 26%, 17%);
+  --cl-text: var(--cl-white);
+  --cl-input: var(--cl-dark-blue);
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--cl-main-bg);
+}

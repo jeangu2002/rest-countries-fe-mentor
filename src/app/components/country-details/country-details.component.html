@@ -1,0 +1,87 @@
+<div class="grid gap-16">
+  <a
+    routerLink=".."
+    class="py-2 px-10 block shadow-md justify-self-start flex gap-4 items-center dark:bg-(--cl-dark-blue) rounded-sm"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 448 512"
+      class="h-4 dark:fill-white"
+    >
+      <path
+        d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+      />
+    </svg>
+    <span>Back</span></a
+  >
+  @if (country()) {
+
+  <div class="grid lg:grid-cols-2 gap-10">
+    <img
+      src="{{ country()?.flags?.svg }}"
+      alt="flag here"
+      class="object-cover w-full lg:w-[calc(100%_-_2.5rem)] aspect-video"
+    />
+
+    <div class="grid gap-8" #data>
+      <h1 class="font-bold text-3xl">{{ country()?.name }}</h1>
+
+      <dl
+        class="grid grid-cols-[repeat(auto-fit,minmax(270px,max-content))] gap-2 gap-x-10 jutify-items-start"
+      >
+        <div class="flex gap-2">
+          <dt class="font-bold text-nowrap">Native Name:</dt>
+          <dd>{{ country()?.nativeName }}</dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-bold">Top level Domain:</dt>
+          <dd>{{ country()?.topLevelDomain }}</dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-bold">Population:</dt>
+          <dd>{{ country()?.population | number }}</dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-bold">Currencies:</dt>
+          <dd>{{ country()?.currencies }}</dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-bold">Region:</dt>
+          <dd>{{ country()?.region }}</dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-bold">Languages:</dt>
+          <dd>{{ country()?.languages }}</dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-bold">Sub Region:</dt>
+          <dd>{{ country()?.subRegion }}</dd>
+        </div>
+        <div class="flex gap-2 col-start-1">
+          <dt class="font-bold">Capital:</dt>
+          <dd>{{ country()?.capital }}</dd>
+        </div>
+      </dl>
+      @if(country()?.borders) {
+      <div class="flex gap-6">
+        <div><span class="font-bold text-nowrap">Border countries:</span></div>
+        <ul class="flex gap-6 flex-wrap">
+          @for(border of country()?.borders; track border){
+          <li>
+            <a
+              routerLink="../{{ border }}"
+              class="shadow-md px-4 py-2 dark:bg-(--cl-dark-blue)"
+              >{{ border }}</a
+            >
+          </li>
+
+          }
+        </ul>
+      </div>
+      }
+    </div>
+  </div>
+  } @else {
+  <p>No country found!</p>
+  }
+</div>

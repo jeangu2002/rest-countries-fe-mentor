@@ -1,0 +1,37 @@
+<app-search-bar></app-search-bar>
+<div
+  class="grid grid-cols-[repeat(auto-fit,minmax(230px,max-content))] gap-12 mt-(--section-gap) md:justify-start"
+>
+  @for(country of countryList(); track country?.name) {
+  <a
+    class="grid shadow-md bg-white rounded-sm overflow-hidden justify-content md:max-w-[min(19.375rem,_90vw)] dark:bg-(--cl-dark-blue)"
+    routerLink="{{ country?.name }}"
+  >
+    <img
+      class="object-cover max-h-40 w-full"
+      src="{{ country?.flags?.svg }}"
+      alt="{{ country?.flags?.alt }}"
+      loading="lazy"
+    />
+    <div class="flex flex-col p-4 pb-6 gap-4">
+      <h2 class="font-bold">{{ country?.name }}</h2>
+      <dl class="text-sm flex flex-col gap-1">
+        <div class="flex gap-2">
+          <dt class="font-bold">Population:</dt>
+          <dd>{{ country?.population | number }}</dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-bold">Region:</dt>
+          <dd>{{ country?.region }}</dd>
+        </div>
+        <div class="flex gap-2">
+          <dt class="font-bold">Capital:</dt>
+          <dd>{{ country?.capital }}</dd>
+        </div>
+      </dl>
+    </div>
+  </a>
+  } @empty {
+  <p>No country found</p>
+  }
+</div>

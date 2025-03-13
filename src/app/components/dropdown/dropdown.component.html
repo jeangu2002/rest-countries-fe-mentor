@@ -1,0 +1,68 @@
+<div class="relative w-fit" role="select">
+  <button
+    class="flex gap-8 items-center justify-between h-6 cursor-pointer bg-white shadow-md px-4 rounded-sm py-6 relative z-10 min-w-[11.6875rem] dark:bg-(--cl-input)"
+    (click)="onFilterClick()"
+  >
+    <span class="">{{ selectedRegion() }}</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+      [class]="{
+        'h-4': true,
+        'rotate-180': !expanded(),
+        'transition-all': true,
+        'rotate-0': expanded(),
+        'duration-600': true,
+        'dark:fill-white': true
+      }"
+    >
+      <path
+        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+      />
+    </svg>
+  </button>
+  <div
+    class="overflow-hidden absolute inset-0 w-full max-h-fit"
+    [class]="{
+      'overflow-hidden': true,
+      absolute: true,
+      'inset-0': true,
+      'w-full': true,
+      'max-h-fit': true,
+      'pointer-events-none': !expanded(),
+      'rounded-sm': true
+    }"
+  >
+    <ul
+      [class]="{
+        'bg-white': true,
+        'shadow-xl': true,
+        'rounded-sm': true,
+        'p-4': true,
+        'mt-[calc(4px_+_48px)]': true,
+        'inset-y-full': true,
+        'overflow-hidden': true,
+        'w-full': true,
+        grid: true,
+        'gap-2': true,
+        'duration-300': true,
+        '-translate-y-[calc(100%_+_48px)]': !expanded(),
+        'translate-0': expanded(),
+        'delay-300': true,
+        'transition-transform': true,
+        'dark:bg-(--cl-input)': true
+      }"
+    >
+      @for(region of regions(); track region.name) { @if(region.displayed) {
+
+      <li
+        class="cursor-pointer"
+        (click)="selectRegion(region.name)"
+        role="option"
+      >
+        {{ region.name }}
+      </li>
+      } }
+    </ul>
+  </div>
+</div>
