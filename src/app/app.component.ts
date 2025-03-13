@@ -34,11 +34,11 @@ export class AppComponent implements OnInit {
       this.darkModeActive()
         ? document.body.classList.add('dark')
         : document.body.classList.remove('dark');
+      localStorage.setItem('darkMode', this.darkModeActive().toString());
     });
   }
 
   toggleDarkMode() {
-    localStorage.setItem('darkMode', this.darkModeActive().toString());
     this.darkModeActive.update((value) => !value);
   }
 
