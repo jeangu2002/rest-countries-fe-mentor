@@ -1,10 +1,10 @@
 {
-  "name": "rest-countries-with-color-theme",
+  "name": "rest-countries",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --output-path dist --base-href /rest-countries/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

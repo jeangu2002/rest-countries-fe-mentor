@@ -30,7 +30,7 @@ jobs:
       - name: Install and Build
         run: |
           npm install
-          ng build --output-path dist --base-href /rest-countries/
+          npm run build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
