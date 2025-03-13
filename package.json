@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path dist --base-href /rest-countries/",
+    "build": "ng build --output-path dist --base-href /rest-countries-fe-mentor/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
