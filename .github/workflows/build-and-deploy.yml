@@ -34,5 +34,5 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          folder: dist
+          folder: dist/browser
           branch: gh-pages
