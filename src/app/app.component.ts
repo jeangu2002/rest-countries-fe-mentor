@@ -49,9 +49,12 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.countryService.loadCountryCodes();
     this.countryService.loadCountries();
-    if (localStorage.getItem('darkMode') === 'true') {
-      this.toggleDarkMode();
-    } else if (localStorage.getItem('darkMode') === null) {
+    const recentMode = localStorage.getItem('darkMode');
+    if (recentMode && localStorage.getItem('darkMode') !== 'true') {
+      this.darkModeActive.set(false);
+    } else if (localStorage.getItem('darkMode') === 'true') {
+      this.darkModeActive.set(true);
+    } else {
       const prefersDarkMode = window.matchMedia(
         '(prefers-color-scheme: dark)'
       ).matches;
