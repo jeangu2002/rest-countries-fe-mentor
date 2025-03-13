@@ -37,8 +37,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/jeangu2002/rest-countries-fe-mentor](https://github.com/jeangu2002/rest-countries-fe-mentor/)
+- Live Site URL: [https://jeangu2002.github.io/rest-countries-fe-mentor](https://jeangu2002.github.io/rest-countries-fe-mentor/)
 
 ### Built with
 
